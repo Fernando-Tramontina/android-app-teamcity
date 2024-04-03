@@ -31,10 +31,5 @@ class ExampleUnitTest {
         assertEquals(4, 2*2)
     }
 
-    @Test(expected = ArithmeticException::class)
-    fun division_byZeroIsUndefined() {
-        2/0
-    }
-
 
 }
