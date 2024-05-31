@@ -25,6 +25,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        debug {
+            isDebuggable = true
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -35,6 +39,24 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
+    }
+    flavorDimensions += listOf("pricing")
+    productFlavors {
+        create("free") {
+            dimension = "pricing"
+            applicationId = "dev.draft.mytestappfree"
+            versionCode = 1
+            versionName = "1.0"
+            buildConfigField("int", "PRICE", "0")
+        }
+        create("paid") {
+            dimension = "pricing"
+            applicationId = "dev.draft.mytestapppaid"
+            versionCode = 1
+            versionName = "1.0"
+            buildConfigField("int", "PRICE", "5")
+        }
     }
 }
 

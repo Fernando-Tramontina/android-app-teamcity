@@ -1,5 +1,6 @@
 package dev.draft.mytestapp
 
+import android.os.Build
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -31,5 +32,16 @@ class ExampleUnitTest {
         assertEquals(4, 2*2)
     }
 
+    @Test
+    fun pricing_isCorrect() {
+        println("Flavour: " + BuildConfig.FLAVOR)
+        println("Build Type: " + BuildConfig.BUILD_TYPE)
+
+        if (BuildConfig.FLAVOR.equals("free")) {
+            assertEquals(0, BuildConfig.PRICE)
+        } else if (BuildConfig.FLAVOR.equals("paid")) {
+            assertEquals(5, BuildConfig.PRICE)
+        }
+    }
 
 }
