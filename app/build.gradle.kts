@@ -1,6 +1,9 @@
+import com.github.triplet.gradle.androidpublisher.ReleaseStatus
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.github.triplet.play") version "3.9.1"
 }
 
 android {
@@ -46,18 +49,25 @@ android {
         create("free") {
             dimension = "pricing"
             applicationId = "dev.draft.mytestappfree"
-            versionCode = 1
-            versionName = "1.0"
+            versionCode = 3
+            versionName = "2.0"
             buildConfigField("int", "PRICE", "0")
         }
         create("paid") {
             dimension = "pricing"
             applicationId = "dev.draft.mytestapppaid"
-            versionCode = 1
-            versionName = "1.0"
+            versionCode = 3
+            versionName = "2.0"
             buildConfigField("int", "PRICE", "5")
         }
     }
+}
+
+play {
+    serviceAccountCredentials.set(file("play_config.json"))
+    track.set("internal")
+    releaseStatus.set(ReleaseStatus.DRAFT)
+    defaultToAppBundles.set(true)
 }
 
 dependencies {
