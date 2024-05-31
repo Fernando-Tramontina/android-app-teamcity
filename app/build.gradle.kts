@@ -49,15 +49,15 @@ android {
         create("free") {
             dimension = "pricing"
             applicationId = "dev.draft.mytestappfree"
-            versionCode = 3
-            versionName = "2.0"
+            versionCode = 4
+            versionName = "4.0"
             buildConfigField("int", "PRICE", "0")
         }
         create("paid") {
             dimension = "pricing"
             applicationId = "dev.draft.mytestapppaid"
-            versionCode = 3
-            versionName = "2.0"
+            versionCode = 4
+            versionName = "4.0"
             buildConfigField("int", "PRICE", "5")
         }
     }
